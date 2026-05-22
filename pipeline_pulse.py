@@ -1,11 +1,16 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+FIVETRAN_API_KEY = os.getenv("FIVETRAN_API_KEY")
+FIVETRAN_API_SECRET = os.getenv("FIVETRAN_API_SECRET")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
 import requests
 import base64
 from google import genai
 
 # ── Config ────────────────────────────────────────────────────────────────────
-FIVETRAN_API_KEY    = "lVaG9INThhDVc9nu"
-FIVETRAN_API_SECRET = "PD6XnXlTIqXBRUKlOF7ufkXZc0dakbAN"
-GEMINI_API_KEY      = "AIzaSyBBpEzHB7HCzTlUyCj1xJPo31pCrI9NwIE"   # ← paste your new key here
 
 # ── Gemini client ─────────────────────────────────────────────────────────────
 client = genai.Client(api_key=GEMINI_API_KEY)
